@@ -1,0 +1,21 @@
+//Priority Encoder
+//input is 8-bit long array
+//output is 3-bit long array
+
+CHIP PriorityEncoder83 {
+	IN a[8]; 
+	OUT out[3], idle;
+
+	PARTS:
+	//Your code starts heres
+	Or(a=a[6], b=a[7], out=tempOut1);
+	Or(a=a[1], b=a[5], out=tempOut2);
+	Or(a=tempOut1, b=tempOut2, out=out[0]);
+	Or(a=a[2], b=a[3], out=tempOut3);
+	Or(a=a[6], b=a[7], out=tempOut4);
+	Or(a=tempOut3, b=tempOut4, out=out[1]);
+	Or(a=a[1], b=a[3], out=tempOut5);
+	Or(a=a[5], b=a[7], out=tempOut6);
+	Or(a=tempOut5, b=tempOut6, out=out[2]);
+	Nor(a=a[0], )
+}
