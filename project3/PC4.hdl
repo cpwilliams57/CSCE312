@@ -1,0 +1,18 @@
+
+CHIP PC4 {
+    IN in[4],load,inc,reset;
+    OUT out[4];
+
+    PARTS:
+    // Put your code here:
+    Inc4(in=oo,out=incd);
+
+	Mux4(a=oo,b=incd,sel=inc,out=o);
+
+	Mux4(a=o,b=in,sel=load,out=uu);
+
+	Mux4(a=uu,b[0..3]=false,sel=reset,out=this);
+	
+	Register4(in=this,load=true,out=out,out=oo);
+	
+}

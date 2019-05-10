@@ -1,0 +1,12 @@
+
+CHIP Mux4 {
+    IN a[4], b[4], sel;
+    OUT out[4];
+
+    PARTS:
+    // Put your code here:
+    Mux(sel=sel, a=a[0],  b=b[0],   out=out[0]);
+    Mux(sel=sel, a=a[1],  b=b[1],   out=out[1]);
+    Mux(sel=sel, a=a[2],  b=b[2],   out=out[2]);
+    Mux(sel=sel, a=a[3],  b=b[3],   out=out[3]);
+  }

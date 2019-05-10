@@ -1,0 +1,8 @@
+CHIP Inc4 {
+    IN in[4];
+    OUT out[4];
+
+    PARTS:
+   // Put you code here:
+      Add4(a=in, b[0]=true, b=false, out=out);
+}

@@ -1,0 +1,31 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/03/RightArithmeticBitshift.hdl
+
+/**
+ * Please read instruction in project document
+ * 
+ */
+
+CHIP RightArithmeticBitshift {
+    IN in, load, reset;
+    OUT out[4];
+
+    PARTS:
+   // Put you code here:
+   Or(a = load, b = reset, out = LorR);
+   Mux(sel = reset, a = in, b = false, out = m1);
+   Bit(in = m1, load = LorR, out = out3, out = out[3]);
+   Mux(sel = reset, a = out3, b = false, out = m2);
+   Bit(in = m2, load = LorR, out = out2);
+   Mux(sel = load, a = out3, b = out2, out = out[2]);
+   Mux(sel = reset, a = out2, b = false, out = m3);
+   Bit(in = m3, load = LorR, out = out1);
+   Mux(sel = load, a = out2, b = out1, out = out[1]);
+   Mux(sel = reset, a = out1,  b = false, out = m4);
+   Bit(in = m4, load = LorR, out = out0);
+   Mux(sel = load, a = out1, b = out0, out = out[0]);
+
+   
+}
