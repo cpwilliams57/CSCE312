@@ -1,0 +1,21 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/02/LeftLogicBitshift.hdl
+
+/**
+ * Shift x left y bits, new bits are filled in with 0, you may not use any DFF or clocked chip in this implementation
+ * You may assume the maximum shift is 8-bit
+ */
+
+CHIP LeftLogicBitshift {
+    IN x[16], y[16];
+    OUT out[16];
+
+    PARTS:
+   // Put you code here:
+  	Mux16(a[0..15] = x[0..15], b[0] = false, b[1..15] = x[1..15] , sel = y[0], out[0..15] = out10..15]);
+  	Mux16(a[0..15] = out10..15], b[0..1] = false, b[2..15] = out10..13], sel = y[1], out[0..15] = out20..15]);
+  	Mux16(a[0..15] = out20..15], b[0..3] = false, b[4..15] = out20..11], sel = y[2], out[0..15] = out30..15]);
+  	Mux16(a[0..15] = out30..15], b[0..7] = false, b[8..15] = out30..7], sel = y[3], out[0..15] = out40..15]);
+}

@@ -1,0 +1,20 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/02/Adder16.hdl
+
+/**
+ * Adds two 6-bit values. 
+ * Think about how to pass the carry of the first 4-bit adder to the second one
+ */
+
+CHIP Add6 {
+    IN a[6], b[6], carryIn;
+    OUT out[6],carry;
+
+    PARTS:
+   // Put you code here:
+   	Add4(a[0..3] = a[0..3], b[0..3] = b[0..3], carryIn = carryIn, out[0..3] = out[0..3] , carry = carry1);
+
+	Add4(a[0..1] = a[4..5] , a[2..3] = false , b[0..1] = b[4..5] , b[2..3] = false, carryIn = carry1, out[0..1] = out[4..5], out[2..3] = false , carry = carry);
+}
